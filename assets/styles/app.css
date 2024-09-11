@@ -1,3 +1,16 @@
 body {
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
+    background-image: url("../styles/images/parquet.png");
+    filter: brightness(70%);
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    
+
 }

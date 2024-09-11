@@ -19,6 +19,10 @@ class Fils
     #[ORM\Column(length: 50)]
     private ?string $couleur = null;
 
+    #[ORM\ManyToOne(inversedBy: 'Fils')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Produits $produits = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +48,18 @@ class Fils
     public function setCouleur(string $couleur): static
     {
         $this->couleur = $couleur;
+
+        return $this;
+    }
+
+    public function getProduits(): ?Produits
+    {
+        return $this->produits;
+    }
+
+    public function setProduits(?Produits $produits): static
+    {
+        $this->produits = $produits;
 
         return $this;
     }

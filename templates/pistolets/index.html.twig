@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pistolets index{% endblock %}
+
+{% block body %}
+    <h1>Pistolets index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pistolet in pistolets %}
+            <tr>
+                <td>{{ pistolet.id }}</td>
+                <td>{{ pistolet.type }}</td>
+                <td>
+                    <a href="{{ path('app_pistolets_show', {'id': pistolet.id}) }}">show</a>
+                    <a href="{{ path('app_pistolets_edit', {'id': pistolet.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_pistolets_new') }}">Create new</a>
+{% endblock %}

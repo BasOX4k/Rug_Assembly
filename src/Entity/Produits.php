@@ -57,6 +57,12 @@ class Produits
     #[ORM\OneToMany(targetEntity: Accessoires::class, mappedBy: 'produits')]
     private Collection $Accessoires;
 
+    /**
+     * @var Collection<int, Fils>
+     */
+    #[ORM\OneToMany(targetEntity: Fils::class, mappedBy: 'produits')]
+    private Collection $Fils;
+
     public function __construct()
     {
         $this->Tissus = new ArrayCollection();
@@ -64,6 +70,7 @@ class Produits
         $this->Tapis = new ArrayCollection();
         $this->Tondeuses = new ArrayCollection();
         $this->Accessoires = new ArrayCollection();
+        $this->Fils = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -263,6 +270,36 @@ class Produits
             // set the owning side to null (unless already changed)
             if ($accessoire->getProduits() === $this) {
                 $accessoire->setProduits(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Fils>
+     */
+    public function getFils(): Collection
+    {
+        return $this->Fils;
+    }
+
+    public function addFil(Fils $fil): static
+    {
+        if (!$this->Fils->contains($fil)) {
+            $this->Fils->add($fil);
+            $fil->setProduits($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFil(Fils $fil): static
+    {
+        if ($this->Fils->removeElement($fil)) {
+            // set the owning side to null (unless already changed)
+            if ($fil->getProduits() === $this) {
+                $fil->setProduits(null);
             }
         }
 

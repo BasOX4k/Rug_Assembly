@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pistolets{% endblock %}
+
+{% block body %}
+    <h1>Pistolets</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pistolet.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ pistolet.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_pistolets_index') }}">back to list</a>
+
+    <a href="{{ path('app_pistolets_edit', {'id': pistolet.id}) }}">edit</a>
+
+    {{ include('pistolets/_delete_form.html.twig') }}
+{% endblock %}

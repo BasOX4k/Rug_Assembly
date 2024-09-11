@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fils{% endblock %}
+
+{% block body %}
+    <h1>Fils</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fil.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ fil.type }}</td>
+            </tr>
+            <tr>
+                <th>Couleur</th>
+                <td>{{ fil.couleur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fils_index') }}">back to list</a>
+
+    <a href="{{ path('app_fils_edit', {'id': fil.id}) }}">edit</a>
+
+    {{ include('fils/_delete_form.html.twig') }}
+{% endblock %}

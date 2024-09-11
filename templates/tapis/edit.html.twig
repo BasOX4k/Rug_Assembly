@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Tapis{% endblock %}
+
+{% block body %}
+    <h1>Edit Tapis</h1>
+
+    {{ include('tapis/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_tapis_index') }}">back to list</a>
+
+    {{ include('tapis/_delete_form.html.twig') }}
+{% endblock %}

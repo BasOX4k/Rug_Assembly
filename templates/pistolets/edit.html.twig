@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Pistolets{% endblock %}
+
+{% block body %}
+    <h1>Edit Pistolets</h1>
+
+    {{ include('pistolets/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_pistolets_index') }}">back to list</a>
+
+    {{ include('pistolets/_delete_form.html.twig') }}
+{% endblock %}

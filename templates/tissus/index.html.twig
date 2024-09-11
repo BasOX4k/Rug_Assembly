@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tissus index{% endblock %}
+
+{% block body %}
+    <h1>Tissus index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Qualité</th>
+                <th>Taille</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tissu in tissuses %}
+            <tr>
+                <td>{{ tissu.id }}</td>
+                <td>{{ tissu.type }}</td>
+                <td>{{ tissu.qualité }}</td>
+                <td>{{ tissu.taille }}</td>
+                <td>
+                    <a href="{{ path('app_tissus_show', {'id': tissu.id}) }}">show</a>
+                    <a href="{{ path('app_tissus_edit', {'id': tissu.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_tissus_new') }}">Create new</a>
+{% endblock %}

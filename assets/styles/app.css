@@ -1,7 +1,7 @@
 body {
     /* background-color: antiquewhite; */
     background-image: url("../styles/images/parquet.png");
-    filter: brightness(70%);
+    /* filter: brightness(70%); */
 }
 
 td {

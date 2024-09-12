@@ -10,8 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 #[Route('/tissus')]
+#[IsGranted('ROLE_ADMIN')]
 final class TissusController extends AbstractController{
     #[Route(name: 'app_tissus_index', methods: ['GET'])]
     public function index(TissusRepository $tissusRepository): Response

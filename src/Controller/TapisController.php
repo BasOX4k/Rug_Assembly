@@ -10,8 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 #[Route('/tapis')]
+#[IsGranted('ROLE_ADMIN')]
 final class TapisController extends AbstractController{
     #[Route(name: 'app_tapis_index', methods: ['GET'])]
     public function index(TapisRepository $tapisRepository): Response

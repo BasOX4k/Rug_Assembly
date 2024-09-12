@@ -39,7 +39,13 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/produits, roles: ROLE_ADMIN }
+        - {path: ^/tondeuses, roles: ROLE_ADMIN}
+        - { path: ^/fils, roles: ROLE_ADMIN }
+        - { path: ^/accessoires, roles: ROLE_ADMIN }
+        - { path: ^/pistolets, roles: ROLE_ADMIN }
+        - { path: ^/tapis, roles: ROLE_ADMIN }
+        - { path: ^/tissus, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:

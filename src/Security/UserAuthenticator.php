@@ -21,7 +21,8 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
     use TargetPathTrait;
 
     public const LOGIN_ROUTE = 'app_login';
-    public const HOME_ROUTE = 'app_produits_index';
+    public const PRODUITS_ROUTE = 'app_produits_index';
+    public const HOME_CLIENT_ROUTE = 'app_home';
 
     public function __construct(private UrlGeneratorInterface $urlGenerator)
     {
@@ -48,7 +49,12 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
 
         if (in_array('ROLE_ADMIN', $token->getRoleNames(), true)) {
             // Redirigez l'administrateur vers la page dédiée aux produits
-            return new RedirectResponse($this->urlGenerator->generate(self::HOME_ROUTE));
+            return new RedirectResponse($this->urlGenerator->generate(self::PRODUITS_ROUTE));
+        }
+
+        if (in_array('ROLE_USER', $token->getRoleNames(), true)) { 
+
+            return new RedirectResponse($this->urlGenerator->generate(self::HOME_CLIENT_ROUTE));
         }
 
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {

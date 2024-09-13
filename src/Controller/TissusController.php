@@ -19,7 +19,7 @@ final class TissusController extends AbstractController{
     #[Route(name: 'app_tissus_index', methods: ['GET'])]
     public function index(TissusRepository $tissusRepository): Response
     {
-        return $this->render('tissus/index.html.twig', [
+        return $this->render('admin/tissus/index.html.twig', [
             'tissuses' => $tissusRepository->findAll(),
         ]);
     }
@@ -38,7 +38,7 @@ final class TissusController extends AbstractController{
             return $this->redirectToRoute('app_tissus_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('tissus/new.html.twig', [
+        return $this->render('admin/tissus/new.html.twig', [
             'tissu' => $tissu,
             'form' => $form,
         ]);
@@ -47,7 +47,7 @@ final class TissusController extends AbstractController{
     #[Route('/{id}', name: 'app_tissus_show', methods: ['GET'])]
     public function show(Tissus $tissu): Response
     {
-        return $this->render('tissus/show.html.twig', [
+        return $this->render('admin/tissus/show.html.twig', [
             'tissu' => $tissu,
         ]);
     }
@@ -64,7 +64,7 @@ final class TissusController extends AbstractController{
             return $this->redirectToRoute('app_tissus_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('tissus/edit.html.twig', [
+        return $this->render('admin/tissus/edit.html.twig', [
             'tissu' => $tissu,
             'form' => $form,
         ]);

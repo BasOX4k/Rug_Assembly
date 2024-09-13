@@ -18,7 +18,7 @@ final class TapisController extends AbstractController{
     #[Route(name: 'app_tapis_index', methods: ['GET'])]
     public function index(TapisRepository $tapisRepository): Response
     {
-        return $this->render('tapis/index.html.twig', [
+        return $this->render('admin/tapis/index.html.twig', [
             'tapis' => $tapisRepository->findAll(),
         ]);
     }
@@ -37,7 +37,7 @@ final class TapisController extends AbstractController{
             return $this->redirectToRoute('app_tapis_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('tapis/new.html.twig', [
+        return $this->render('admin/tapis/new.html.twig', [
             'tapi' => $tapi,
             'form' => $form,
         ]);
@@ -46,7 +46,7 @@ final class TapisController extends AbstractController{
     #[Route('/{id}', name: 'app_tapis_show', methods: ['GET'])]
     public function show(Tapis $tapi): Response
     {
-        return $this->render('tapis/show.html.twig', [
+        return $this->render('admin/tapis/show.html.twig', [
             'tapi' => $tapi,
         ]);
     }
@@ -63,7 +63,7 @@ final class TapisController extends AbstractController{
             return $this->redirectToRoute('app_tapis_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('tapis/edit.html.twig', [
+        return $this->render('admin/tapis/edit.html.twig', [
             'tapi' => $tapi,
             'form' => $form,
         ]);

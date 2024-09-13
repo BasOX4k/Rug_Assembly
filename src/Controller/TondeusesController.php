@@ -19,7 +19,7 @@ final class TondeusesController extends AbstractController{
     #[Route(name: 'app_tondeuses_index', methods: ['GET'])]
     public function index(TondeusesRepository $tondeusesRepository): Response
     {
-        return $this->render('tondeuses/index.html.twig', [
+        return $this->render('admin/tondeuses/index.html.twig', [
             'tondeuses' => $tondeusesRepository->findAll(),
         ]);
     }
@@ -38,7 +38,7 @@ final class TondeusesController extends AbstractController{
             return $this->redirectToRoute('app_tondeuses_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('tondeuses/new.html.twig', [
+        return $this->render('admin/tondeuses/new.html.twig', [
             'tondeus' => $tondeus,
             'form' => $form,
         ]);
@@ -47,7 +47,7 @@ final class TondeusesController extends AbstractController{
     #[Route('/{id}', name: 'app_tondeuses_show', methods: ['GET'])]
     public function show(Tondeuses $tondeus): Response
     {
-        return $this->render('tondeuses/show.html.twig', [
+        return $this->render('admin/tondeuses/show.html.twig', [
             'tondeus' => $tondeus,
         ]);
     }
@@ -64,7 +64,7 @@ final class TondeusesController extends AbstractController{
             return $this->redirectToRoute('app_tondeuses_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('tondeuses/edit.html.twig', [
+        return $this->render('admin/tondeuses/edit.html.twig', [
             'tondeus' => $tondeus,
             'form' => $form,
         ]);

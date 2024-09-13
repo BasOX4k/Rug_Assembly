@@ -18,7 +18,7 @@ final class PistoletsController extends AbstractController{
     #[Route(name: 'app_pistolets_index', methods: ['GET'])]
     public function index(PistoletsRepository $pistoletsRepository): Response
     {
-        return $this->render('pistolets/index.html.twig', [
+        return $this->render('admin/pistolets/index.html.twig', [
             'pistolets' => $pistoletsRepository->findAll(),
         ]);
     }
@@ -37,7 +37,7 @@ final class PistoletsController extends AbstractController{
             return $this->redirectToRoute('app_pistolets_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('pistolets/new.html.twig', [
+        return $this->render('admin/pistolets/new.html.twig', [
             'pistolet' => $pistolet,
             'form' => $form,
         ]);
@@ -46,7 +46,7 @@ final class PistoletsController extends AbstractController{
     #[Route('/{id}', name: 'app_pistolets_show', methods: ['GET'])]
     public function show(Pistolets $pistolet): Response
     {
-        return $this->render('pistolets/show.html.twig', [
+        return $this->render('admin/pistolets/show.html.twig', [
             'pistolet' => $pistolet,
         ]);
     }
@@ -63,7 +63,7 @@ final class PistoletsController extends AbstractController{
             return $this->redirectToRoute('app_pistolets_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('pistolets/edit.html.twig', [
+        return $this->render('admin/pistolets/edit.html.twig', [
             'pistolet' => $pistolet,
             'form' => $form,
         ]);

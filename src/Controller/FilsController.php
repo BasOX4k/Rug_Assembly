@@ -18,7 +18,7 @@ final class FilsController extends AbstractController{
     #[Route(name: 'app_fils_index', methods: ['GET'])]
     public function index(FilsRepository $filsRepository): Response
     {
-        return $this->render('fils/index.html.twig', [
+        return $this->render('admin/fils/index.html.twig', [
             'fils' => $filsRepository->findAll(),
         ]);
     }
@@ -37,7 +37,7 @@ final class FilsController extends AbstractController{
             return $this->redirectToRoute('app_fils_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('fils/new.html.twig', [
+        return $this->render('admin/fils/new.html.twig', [
             'fil' => $fil,
             'form' => $form,
         ]);
@@ -46,7 +46,7 @@ final class FilsController extends AbstractController{
     #[Route('/{id}', name: 'app_fils_show', methods: ['GET'])]
     public function show(Fils $fil): Response
     {
-        return $this->render('fils/show.html.twig', [
+        return $this->render('admin/fils/show.html.twig', [
             'fil' => $fil,
         ]);
     }
@@ -63,7 +63,7 @@ final class FilsController extends AbstractController{
             return $this->redirectToRoute('app_fils_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('fils/edit.html.twig', [
+        return $this->render('admin/fils/edit.html.twig', [
             'fil' => $fil,
             'form' => $form,
         ]);

@@ -18,7 +18,7 @@ final class AccessoiresController extends AbstractController{
     #[Route(name: 'app_accessoires_index', methods: ['GET'])]
     public function index(AccessoiresRepository $accessoiresRepository): Response
     {
-        return $this->render('accessoires/index.html.twig', [
+        return $this->render('admin/accessoires/index.html.twig', [
             'accessoires' => $accessoiresRepository->findAll(),
         ]);
     }
@@ -37,7 +37,7 @@ final class AccessoiresController extends AbstractController{
             return $this->redirectToRoute('app_accessoires_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('accessoires/new.html.twig', [
+        return $this->render('admin/accessoires/new.html.twig', [
             'accessoire' => $accessoire,
             'form' => $form,
         ]);
@@ -46,7 +46,7 @@ final class AccessoiresController extends AbstractController{
     #[Route('/{id}', name: 'app_accessoires_show', methods: ['GET'])]
     public function show(Accessoires $accessoire): Response
     {
-        return $this->render('accessoires/show.html.twig', [
+        return $this->render('admin/accessoires/show.html.twig', [
             'accessoire' => $accessoire,
         ]);
     }
@@ -63,7 +63,7 @@ final class AccessoiresController extends AbstractController{
             return $this->redirectToRoute('app_accessoires_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('accessoires/edit.html.twig', [
+        return $this->render('admin/accessoires/edit.html.twig', [
             'accessoire' => $accessoire,
             'form' => $form,
         ]);

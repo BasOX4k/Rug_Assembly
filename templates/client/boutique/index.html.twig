@@ -10,24 +10,9 @@
 
 <div class="example-wrapper">
     <div class="container">
-        <!-- Cards Section -->
-        <div class="row">
-            {% for i in 1..6 %}
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Card Image">
-                        <div class="card-body">
-                            <h5 class="card-title">Card Title {{ i }}</h5>
-                            <p class="card-text">This is a description of card {{ i }}. It provides a brief overview of the content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
 
-        <!-- Categories Section -->
-        <div class="mt-5">
+      <!-- Categories Section -->
+        <div class="mt-5 mb-5">
             <h3>Categories</h3>
             <ul class="list-group list-group-horizontal">
                 {% for category in ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'] %}
@@ -37,5 +22,83 @@
                 {% endfor %}
             </ul>
         </div>
+        <!-- Cards Section -->
+       <div class="row">
+    <!-- Carte 1 -->
+    <div class="col-md-4">
+        <div class="card">
+            <img src="../assets/styles/images/rug/1-ball.png" class="card-img-top" alt="Card Image 1">
+            <div class="card-body">
+                <h5 class="card-title">Card Title 1</h5>
+                <p class="card-text">This is a description of card 1. It provides a brief overview of the content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carte 2 -->
+    <div class="col-md-4">
+        <div class="card">
+            <img src="../assets/styles/images/rug/2-ball.png" class="card-img-top" alt="Card Image 2">
+            <div class="card-body">
+                <h5 class="card-title">Card Title 2</h5>
+                <p class="card-text">This is a description of card 2. It provides a brief overview of the content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carte 3 -->
+    <div class="col-md-4">
+        <div class="card">
+            <img src="../assets/styles/images/rug/3-ball.png" class="card-img-top" alt="Card Image 3">
+            <div class="card-body">
+                <h5 class="card-title">Card Title 3</h5>
+                <p class="card-text">This is a description of card 3. It provides a brief overview of the content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carte 4 -->
+    <div class="col-md-4">
+        <div class="card">
+            <img src="../assets/styles/images/rug/4-ball.png" class="card-img-top" alt="Card Image 4">
+            <div class="card-body">
+                <h5 class="card-title">Card Title 4</h5>
+                <p class="card-text">This is a description of card 4. It provides a brief overview of the content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carte 5 -->
+    <div class="col-md-4">
+        <div class="card">
+            <img src="../assets/styles/images/rug/5-ball.png" class="card-img-top" alt="Card Image 5">
+            <div class="card-body">
+                <h5 class="card-title">Card Title 5</h5>
+                <p class="card-text">This is a description of card 5. It provides a brief overview of the content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carte 6 -->
+    <div class="col-md-4">
+        <div class="card">
+            <img src="../assets/styles/images/rug/6-ball.png" class="card-img-top" alt="Card Image 6">
+            <div class="card-body">
+                <h5 class="card-title">Card Title 6</h5>
+                <p class="card-text">This is a description of card 6. It provides a brief overview of the content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+      
 </div>
 {% endblock %}

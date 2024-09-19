@@ -21,6 +21,10 @@ final class ProduitsController extends AbstractController{
         return $this->render('admin/produits/index.html.twig', [
             'produits' => $produitsRepository->findAll(),
         ]);
+
+        return $this->render('client/produit/index.html.twig', [ 
+            'produits' => $produitsRepository->findAll(),
+        ]);
     }
 
     #[Route('/new', name: 'app_produits_new', methods: ['GET', 'POST'])]

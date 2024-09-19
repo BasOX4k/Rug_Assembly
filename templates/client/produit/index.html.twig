@@ -1,0 +1,25 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<html>
+<head>
+    <title>Liste des produits</title>
+</head>
+<body>
+    <h1>Nos produits</h1>
+
+    <div id="produits-container">
+        {% for produit in produits %}
+            <div class="product">
+                <h2>{{ produit.nom }}</h2>
+                <p>{{ produit.description }}</p>
+                <span>{{ produit.price }} €</span>
+            </div>
+        {% else %}
+            <p>Aucun produit disponible pour le moment.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

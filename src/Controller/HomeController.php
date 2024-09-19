@@ -15,4 +15,13 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+    
+    // #[Route('/boutique', name: 'app_boutique')]
+
+    // public function boutique(): Response
+    // {
+    //     return $this->render('client/boutique/index.html.twig', [
+    //         'controller_name' => 'BoutiqueController',
+    //     ]);
+    // }
 }

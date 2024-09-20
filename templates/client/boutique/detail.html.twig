@@ -1,0 +1,29 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Détails du produit{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Détails du produit</h1>
+        <div class="row">
+            <!-- Colonne de gauche : informations du produit -->
+            <div class="col-md-6">
+                <h5>{{ produit.nom }}</h5>
+                <p>{{ produit.description }}</p>
+                <p><strong>Prix: </strong>{{ produit.prix }} <strong>€</strong></p>
+                <button class="btn btn-primary">Acheter</button>
+            </div>
+
+            <!-- Colonne de droite : image du produit -->
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                {% if produit.image %}
+                    <img src="{{ produit.image }}" alt="{{ produit.nom }}" style="max-width: 100%; height: auto;">
+                {% else %}
+                    <div class="d-flex align-items-center justify-content-center bg-light" style="width: 100%; height: 300px;">
+                        <span class="text-muted">No image</span>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

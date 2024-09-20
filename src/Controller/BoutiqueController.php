@@ -19,4 +19,19 @@ class BoutiqueController extends AbstractController
             
         ]);
     }
+    /**
+ * @Route("/product/{id}", name="product_detail")
+ */
+#[Route('/boutique/detail/{id}', name: 'boutique_detail')]
+public function boutiqueDetail(ProduitsRepository $produitsRepository, int $id): Response
+{
+    $produit = $produitsRepository->findOneBy(['id' => $id]);
+
+    return $this->render('client/boutique/detail.html.twig', [
+        'controller_name' => 'BoutiqueController',
+        'produit' => $produit,
+    ]);
+}
+
+
 }

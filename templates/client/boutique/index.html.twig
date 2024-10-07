@@ -3,16 +3,21 @@
 {% block title %}Produits Index{% endblock %}
 
 {% block body %}
+<form action="{{ path('boutique_search') }}" method="get">
+    <input type="text" name="q" placeholder="Rechercher un produit par nom" />
+    <button type="submit">Rechercher</button>
+</form>
     <div class="container mt-4">
         <h1 class="mb-4">Produits Index</h1>
+        
         
         {# <div class="row">
             <!-- Category Section on the Left -->
             <div class="col-md-3">
                 <div class="list-group">
                     <h5 class="mb-3">Catégories</h5>
-                    {% for categorie in categories %}
-                        <a href="#" class="list-group-item list-group-item-action">{{ categorie.nom }}</a>
+                    {% for tondeuse in tondeuses %}
+                        <a href="#" class="list-group-item list-group-item-action">{{ tondeuse.nom }}</a>
                     {% else %}
                         <p class="text-center">No categories found</p>
                     {% endfor %}
@@ -37,7 +42,7 @@
                                     <p class="card-text">{{ produit.description }}</p>
                                     <p class="card-text"><strong>Prix: </strong>  {{ produit.prix }} <strong>€</strong></p>
                                     <a href="{{ path('boutique_detail', { 'id': produit.id }) }}" class="btn btn-primary">Détails</a>
-                                    {# <button class="btn btn-primary">Détails</button> #}
+                                    
                                 </div>
                             </div>
                         </div>

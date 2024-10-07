@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Create new Tondeuses</h1>
 
-    {{ include('tondeuses/_form.html.twig') }}
+    {{ include('admin/tondeuses/_form.html.twig') }}
 
-    <a href="{{ path('app_tondeuses_index') }}">back to list</a>
+    <a class="btn btn-danger" href="{{ path('app_tondeuses_index') }}">back to list</a>
 {% endblock %}

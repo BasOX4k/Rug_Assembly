@@ -14,9 +14,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_tondeuses_index') }}">back to list</a>
+    <a class="btn btn-danger" href="{{ path('app_tondeuses_index') }}">back to list</a>
 
-    <a href="{{ path('app_tondeuses_edit', {'id': tondeus.id}) }}">edit</a>
+    <a class="btn btn-primary" href="{{ path('app_tondeuses_edit', {'id': tondeus.id}) }}">edit</a>
 
-    {{ include('tondeuses/_delete_form.html.twig') }}
+    {{ include('admin/tondeuses/_delete_form.html.twig') }}
 {% endblock %}

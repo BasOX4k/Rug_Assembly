@@ -1,31 +1,18 @@
 {% extends 'base2.html.twig' %}
 
-{% block title %}Produits Index{% endblock %}
+{% block title %}Boutique{% endblock %}
 
 {% block body %}
-<form action="{{ path('boutique_search') }}" method="get">
-    <input type="text" name="q" placeholder="Rechercher un produit par nom" />
-    <button type="submit">Rechercher</button>
-</form>
-    <div class="container mt-4">
-        <h1 class="mb-4">Produits Index</h1>
-        
-        
-        {# <div class="row">
-            <!-- Category Section on the Left -->
-            <div class="col-md-3">
-                <div class="list-group">
-                    <h5 class="mb-3">Catégories</h5>
-                    {% for tondeuse in tondeuses %}
-                        <a href="#" class="list-group-item list-group-item-action">{{ tondeuse.nom }}</a>
-                    {% else %}
-                        <p class="text-center">No categories found</p>
-                    {% endfor %}
-                </div>
-            </div> #}
-
+ <div class="d-flex justify-content-center my-4">
+        <form action="{{ path('boutique_search') }}" method="get" class="search-form d-flex">
+            <input type="text" name="q" placeholder="Rechercher un produit par nom" class="form-control mr-2" />
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+    </div>
+    <div class="container  mt-4">
+        <h1 class="mb-4"></h1>
             <!-- Product Cards -->
-            <div class="col-md-9">
+            <div class="col-md-9 ">
                 <div class="row">
                     {% for produit in produits %}
                         <div class="col-md-4 mb-4">
@@ -54,5 +41,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}

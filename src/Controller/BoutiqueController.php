@@ -48,4 +48,6 @@ public function boutiqueDetail(ProduitsRepository $produitsRepository, int $id):
         ]);
     }
 
+    
+
 }

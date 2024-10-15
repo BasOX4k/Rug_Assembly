@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conditions d'utilisation
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+    
+		<h1>Conditions Générales d'Utilisation</h1>
+
+		<p>Bienvenue sur
+			<strong>PreParfumer</strong>. En accédant et en utilisant notre site, vous acceptez de respecter les présentes conditions générales d'utilisation (CGU). Veuillez les lire attentivement avant de naviguer sur notre site et d'effectuer des achats.</p>
+
+		<h2>1. Objet</h2>
+		<hr>
+		<p>Les présentes conditions générales régissent l'utilisation du site
+			<strong>PreParfumer</strong>, ainsi que les droits et obligations des utilisateurs et des responsables du site.
+			<strong>PreParfumer</strong>
+			propose une boutique en ligne permettant aux utilisateurs d'acheter des parfums made in France.</p>
+
+		<h2>2. Accès au site</h2>
+		<hr>
+		<p>L'accès au site est gratuit pour tous les utilisateurs. Certaines fonctionnalités, comme la possibilité de passer une commande, nécessitent la création d'un compte utilisateur. Les visiteurs peuvent naviguer librement sur le site et ajouter des produits au panier, mais un compte est requis pour finaliser une commande.</p>
+
+		<h2>3. Inscription et compte utilisateur</h2>
+		<hr>
+		<p>Pour passer une commande, vous devez créer un compte en fournissant des informations exactes et à jour. Vous êtes responsable de la confidentialité de vos identifiants de connexion. En cas d'utilisation non autorisée de votre compte, veuillez nous en informer immédiatement.</p>
+
+		<h2>4. Produits et commandes</h2>
+		<hr>
+		<p>Nous nous efforçons de présenter des informations précises sur les produits disponibles, mais des erreurs peuvent survenir. Les prix affichés sur le site sont en euros (€) et incluent la TVA.
+			<strong>PreParfumer</strong>
+			se réserve le droit de modifier les prix à tout moment, mais le prix en vigueur au moment de la commande sera celui appliqué.</p>
+
+		<h3>Processus de commande :</h3>
+		<p>1. Sélectionnez les produits et ajoutez-les à votre panier.<br>
+			2. Créez un compte ou connectez-vous à votre compte existant.<br>
+			3. Choisissez une méthode de paiement : en ligne, à la livraison ou sur place.<br>
+			4. Confirmez votre commande.</p>
+		<p>Une fois votre commande validée, vous recevrez un email de confirmation. En cas de paiement en ligne, vous serez redirigé vers une page sécurisée pour effectuer le paiement via Stripe.</p>
+
+		<h2>5. Modes de paiement</h2>
+		<hr>
+		<p>
+			<strong>PreParfumer</strong>
+			propose plusieurs méthodes de paiement :</p>
+		<p>-
+			<strong>Payer en ligne</strong>
+			: via Stripe, un système sécurisé.<br>
+			-
+			<strong>Payer à la livraison</strong>
+			: vous réglez votre commande lors de la réception.<br>
+			-
+			<strong>Payer sur place</strong>
+			: paiement sans frais de livraison lors du retrait en boutique.</p>
+
+		<h2>6. Livraison</h2>
+		<hr>
+		<p>Les frais de livraison sont calculés en fonction de la méthode choisie. Pour les commandes avec "Payer sur place", aucun frais de livraison ne s'applique. Nous nous efforçons d’expédier les commandes dans les délais indiqués, mais
+			<strong>PreParfumer</strong>
+			ne saurait être tenue responsable des retards de livraison imputables aux transporteurs.</p>
+
+		<h2>7. Politique de retour</h2>
+		<hr>
+		<p>Conformément à la législation en vigueur, vous disposez d’un délai de rétractation de 14 jours à compter de la réception de votre commande pour demander un retour. Les produits doivent être retournés dans leur état d’origine. Les frais de retour sont à la charge du client.</p>
+
+		<h2>8. Responsabilités</h2>
+		<hr>
+		<p>Le site
+			<strong>PreParfumer</strong>
+			met en œuvre tous les moyens nécessaires pour assurer la fiabilité des informations présentes sur le site, mais ne peut garantir l'exactitude ou l'exhaustivité des données. En utilisant notre site, vous acceptez de le faire à vos risques et périls.</p>
+
+		<h2>9. Protection des données personnelles</h2>
+		<hr>
+		<p>Vos données personnelles sont collectées et traitées conformément à notre
+			<a href="{{path ( 'app_rgpd_politique_confidentialite' )}}">Politique de Confidentialité</a>. Vous disposez d’un droit d’accès, de rectification et de suppression de vos données en nous contactant via notre page dédiée.</p>
+
+		<h2>10. Propriété intellectuelle</h2>
+		<hr>
+		<p>Tous les éléments du site
+			<strong>PreParfumer</strong>
+			(textes, images, logos, design, etc.) sont protégés par les droits de propriété intellectuelle et appartiennent à
+			<strong>PreParfumer</strong>. Toute reproduction sans autorisation est strictement interdite.</p>
+
+		<h2>11. Modification des conditions</h2>
+		<hr>
+		<p>
+			<strong>PreParfumer</strong>
+			se réserve le droit de modifier à tout moment les présentes CGU. Les modifications seront effectives dès leur publication sur le site. Il est de votre responsabilité de consulter régulièrement les conditions d'utilisation.</p>
+
+		<h2>12. Loi applicable</h2>
+		<hr>
+		<p>Les présentes conditions sont soumises au droit français. En cas de litige, les tribunaux français seront compétents.</p>
+
+		<h2>13. Contact</h2>
+		<hr>
+		<p>Pour toute question relative aux conditions d'utilisation ou pour toute autre demande, vous pouvez nous contacter à l'adresse suivante :
+			<strong>support@preparfumer.com</strong>.</p>
+
+	</div>
+{% endblock %}

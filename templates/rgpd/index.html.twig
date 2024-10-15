@@ -1,0 +1,23 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Hello RgpdController!
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<table class="table table-bordered">
+<h1 class="h1Twig">RGPD</h1>
+<h2>Vous êtes sur la page RGPD</h2>
+<hr>
+<p class="text-muted fs-5">Vous pouvez consulter la politique de confidentialité et les conditions d'utilisation en cliquant sur les liens</p>
+<div class="d-flex align-items-center">
+<label for="agreeTerms" class="ms-2">
+<a href={{path ('app_rgpd_conditions_utilisation' )}} target="_blank">conditions d'utilisation</a>
+                    <a href={{path ( 'app_rgpd_politique_confidentialite' )}}  target="_blank">politique de confidentialité</a>.
+</label>
+
+</div>
+<a href="{{ path('app_home') }}" class="btn btn-primary m-1">Retour à l'accueil</a>
+</table>
+</div>
+{% endblock %}

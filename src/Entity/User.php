@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
@@ -20,6 +21,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180)]
+    #[Assert\NotBlank(message: 'Email should not be blank')]
+    #[Assert\Email(message: 'The email "{{ value }}" is not a valid email.')]
+    #[Assert\Length(
+        max: 180,
+        maxMessage: 'The email cannot be longer than {{ limit }} characters'
+    )]
     private ?string $email = null;
 
     /**
@@ -32,16 +39,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Password should not be blank')]
+    #[Assert\Length(
+        min: 8,
+        minMessage: 'The password must be at least {{ limit }} characters long'
+    )]
     private ?string $password = null;
 
     #[ORM\Column]
     private bool $isVerified = false;
 
     #[ORM\Column(length: 150)]
+    #[Assert\NotBlank(message: 'Nom should not be blank')]
+    #[Assert\Length(
+        max: 150,
+        maxMessage: 'Nom cannot be longer than {{ limit }} characters'
+    )]
     private ?string $nom = null;
 
     #[ORM\Column(length: 150)]
+    #[Assert\NotBlank(message: 'Prenom should not be blank')]
+    #[Assert\Length(
+        max: 150,
+        maxMessage: 'Prenom cannot be longer than {{ limit }} characters'
+    )]
     private ?string $prenom = null;
+
+    // Getters and setters...
 
     public function getId(): ?int
     {
@@ -60,32 +84,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
     public function getUserIdentifier(): string
     {
         return (string) $this->email;
     }
 
-    /**
-     * @see UserInterface
-     * @return list<string>
-     */
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
 
-    /**
-     * @param list<string> $roles
-     */
     public function setRoles(array $roles): static
     {
         $this->roles = $roles;
@@ -93,9 +104,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @see PasswordAuthenticatedUserInterface
-     */
     public function getPassword(): ?string
     {
         return $this->password;
@@ -108,13 +116,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
     public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        // Clear sensitive data here if necessary
     }
 
     public function isVerified(): bool

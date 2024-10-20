@@ -7,13 +7,13 @@ use App\Repository\ProduitsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 class CommandeController extends AbstractController
 {
-    #[Route('/commande', name: 'passer_commande')]
+    #[Route('client/commande', name: 'passer_commande')]
     public function commande(SessionInterface $session, ProduitsRepository $produitsRepository, Request $request, EntityManagerInterface $entityManager): Response
     {
         $panier = $session->get('panier', []);
@@ -42,9 +42,9 @@ class CommandeController extends AbstractController
             $commande->setTotal($total);
             $commande->setDate(new \DateTime());
 
-            // Attacher les produits commandés (vous pouvez aussi créer une table de relation Commande <-> Produit)
+            // Ajoute les produits à la commande
             foreach ($panierWithData as $item) {
-                // Logique pour ajouter les produits à la commande
+                $commande->addProduit($item['produit']); // Ajoute le produit à la commande
             }
 
             $entityManager->persist($commande);
@@ -64,7 +64,7 @@ class CommandeController extends AbstractController
         ]);
     }
 
-    #[Route('/commande/confirmation', name: 'confirmation_commande')]
+    #[Route('client/commande/confirmation', name: 'confirmation_commande')]
     public function confirmation(): Response
     {
         return $this->render('client/commande/confirmation.html.twig');

@@ -57,6 +57,9 @@ class Commande
     #[Assert\DateTime(message: "Veuillez entrer une date et une heure valides.")]
     private $date;
 
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    private ?Panier $panier = null;
+
     
     // Getters et Setters...
 
@@ -200,6 +203,17 @@ class Commande
     {
         $this->date = $date;
 
+        return $this;
+    }
+
+    public function getPanier(): ?Panier
+    {
+        return $this->panier;
+    }
+
+    public function setPanier(?Panier $panier): static
+    {
+        $this->panier = $panier;
         return $this;
     }
 }
